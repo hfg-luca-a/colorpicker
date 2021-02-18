@@ -11,11 +11,11 @@ let mqtt = require('mqtt')
 let client = mqtt.connect('mqtt:/192.168.0.132')
 
 
-
+//sendet daten an mqtt broker
 function publishData(data) {
     console.log(data[2])
     console.log(data[0])
-    client.publish('/led/helligkeit', data[2])
+    client.publish('/led/helligkeit', data[2])  //client.publish('topic', zu sendende Daten) 
     client.publish('/led/farbe', data[0])
 }
 

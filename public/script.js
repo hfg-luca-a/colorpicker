@@ -43,24 +43,13 @@ const pickr = Pickr.create({
 });
 
 
-
 pickr.on('change', (color, source, instance) => {
-    console.log(color.toHSVA());
+    //console.log(color.toHSVA());
     const data = color.toHSVA()
     postData(data)
 })
 
-
-
-
-
-
-
-
-
 async function postData(data) {
-
-
 
     const options = {
 
@@ -74,8 +63,6 @@ async function postData(data) {
 
     const response = await fetch('/hsvdata', options);
     const avdata = await response.json();
-    console.log(avdata)
-
-
+    //console.log(avdata)
 }
 
