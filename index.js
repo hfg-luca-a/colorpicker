@@ -8,7 +8,10 @@ app.use(express.json());
 
 //Verbindung zu Mqtt Broker
 let mqtt = require('mqtt')
-let client = mqtt.connect('mqtt:/192.168.0.132')
+let client = mqtt.connect('mqtt:/192.168.0.132', {
+    username: 'LedEsp',
+    password: 'LedEsp'
+})
 
 
 //sendet daten an mqtt broker
