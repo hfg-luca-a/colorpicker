@@ -25,7 +25,6 @@ const pickr = Pickr.create({
 
         // Main components
         preview: true,
-        opacity: true,
         hue: true,
 
         // Input / output Options
@@ -39,7 +38,7 @@ const pickr = Pickr.create({
 
 
 pickr.on('save', (color, source, instance) => {
-    //console.log(color.toHSVA());
+    console.log(color.toHSVA().toString());
     const data = color.toHSVA()
     postData(data)
 })

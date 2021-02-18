@@ -16,10 +16,14 @@ let client = mqtt.connect('mqtt:/192.168.0.132:1883', {
 
 //sendet daten an mqtt broker
 function publishData(data) {
-    console.log(data[2])
-    console.log(data[0])
-    client.publish('/led/helligkeit', String(data[2]))  //client.publish('topic', zu sendende Daten) 
-    client.publish('/led/farbe', String(data[0]))
+
+    let temphelligkeit = data[2]
+    temphelligkeit = (temphelligkeit/100)*255
+    let tempfarbe = data[0]
+    tempfarbe = (tempfarbe/360)*255
+    client.publish('/led/helligkeit', String(temphelligkeit))  //client.publish('topic', zu sendende Daten) 
+    client.publish('/led/farbe', String(tempfarbe))
+    console.log(`Umgerechnet Farbe | Helligkeit -- ${tempfarbe}|${temphelligkeit}`);
 }
 
 
