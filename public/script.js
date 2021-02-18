@@ -30,20 +30,15 @@ const pickr = Pickr.create({
 
         // Input / output Options
         interaction: {
-            hex: true,
-            rgba: true,
-            hsla: true,
+            
             hsva: true,
-            cmyk: true,
-            input: true,
-            clear: true,
             save: true
         }
     }
 });
 
 
-pickr.on('change', (color, source, instance) => {
+pickr.on('save', (color, source, instance) => {
     //console.log(color.toHSVA());
     const data = color.toHSVA()
     postData(data)
